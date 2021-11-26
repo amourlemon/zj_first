@@ -21,6 +21,7 @@ foo.prototype = {
     age: 20,
     height: 1.88
 }
+console.log(f1.name);
 // 定义构造函数的属性
 Object.defineProperty(foo.prototype, 'constructor', {
     enumerable: false,
