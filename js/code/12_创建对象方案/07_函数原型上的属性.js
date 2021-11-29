@@ -15,13 +15,14 @@ foo.prototype.age = 20;
 console.log(f1.age);
 console.log(f1.constructor.name);
 
-// 方法二： 创建一个新的显式原型对象，在内存中，原来的显式对象被删除
+// 方法二： 创建一个新的显式原型对象，在内存中，原来的显式对象被删除 (一定要放在 new 操作之前)
+// 本例放在了 new 操作之后，所以函数的显示原型直接被覆盖了，但是 new 出来的新的对象的原型，并没有发生改变
 foo.prototype = {
     name: 'zs',
     age: 20,
     height: 1.88
 }
-console.log(f1.name);
+console.log(f1.name);  // undefined
 // 定义构造函数的属性
 Object.defineProperty(foo.prototype, 'constructor', {
     enumerable: false,
