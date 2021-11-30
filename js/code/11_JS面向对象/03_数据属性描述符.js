@@ -7,4 +7,6 @@ Object.defineProperty(obj, 'age', {
 })
 obj.age = 18;
 console.log(obj);
+
+console.log(Object.getOwnPropertyDescriptors);
 // console.log(obj.age);
