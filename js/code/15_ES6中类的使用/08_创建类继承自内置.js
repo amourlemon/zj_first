@@ -9,8 +9,8 @@ class DiyArr extends Array {
 
 var p1 = new DiyArr('张三', '李四', '王五');
 console.log(p1.getFirstEl());
-console.log(p1 instanceof DiyArr);
+console.log(p1 instanceof DiyArr); // true
 p1 = [];
-console.log(p1 instanceof DiyArr);
+console.log(p1 instanceof DiyArr); // false
 // console.log(p1);
 // console.log(Object.getOwnPropertyDescriptors(p1.__proto__));
