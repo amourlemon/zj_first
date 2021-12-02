@@ -7,5 +7,5 @@ console.log(num1, num2, num3, num4);
 
 // 大数的表示
 
-const num5 = 100_000_000_000_000;
+const num5 = 100_000_000_000_000; // 使用下划线，代码更加直观
 console.log(num5);
