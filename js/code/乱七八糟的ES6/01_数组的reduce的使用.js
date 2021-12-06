@@ -53,4 +53,4 @@ let a = i++;
 let b = ++j;
 // 可见， i++ 是先将 i 的值给 a，然后再进行 ++ 操作；
 //  ++i，是先进行 ++ 操作，然后赋值给b
-console.log(a, i, b, j);
+console.log(a, i, b, j); // 1 2 2 2
