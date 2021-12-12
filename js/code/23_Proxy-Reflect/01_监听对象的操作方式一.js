@@ -24,7 +24,7 @@ Object.keys(obj).forEach(key => {
 })
 
 obj.name = 'Jerry';
-// console.log(obj.name);
+console.log(obj.name);
 
 // 缺点：
     // 1. Object.defineProperty() 用途不是来监听属性变化的
@@ -36,9 +36,15 @@ obj.name = 'Jerry';
 // msg2 = 'World';
 // console.log(msg1);
 
-// const info = {
-//     name: 'zs'
-// }
+const info = {
+    _name: 'ls',
+    get name() {
+        return _name
+    },
+    set name(newVal) {
+        _name = newVal
+    }
+}
 
 // function foo( val, key ) {
 //     let value = val[key];
