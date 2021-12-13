@@ -28,5 +28,5 @@ const info = {
     age: 12
 }
 
-const obj = {...info, address: '上海', ...names}
+const obj = {...info, address: '上海', ...names} // 对象中也可以将数组展开后放入，不过数组的元素对应的 key 就是元素的下标
 console.log(obj);
