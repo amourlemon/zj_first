@@ -16,7 +16,6 @@ function requestData(url, successCallBack, failCallBack) {
     }, 2000)
 }
 
-let res;
 const data = requestData('www.baisu', 
     (data) => {
         console.log(data);
@@ -28,4 +27,6 @@ const data = requestData('www.baisu',
     } 
 )
 
-console.log(res);
+// 自己封装的弊端： 
+    // 1、必须要自己想好回调函数的名字，并且使用好
+    // 2、在使用别人封装的方法时，必须去阅读文档或者阅读源码

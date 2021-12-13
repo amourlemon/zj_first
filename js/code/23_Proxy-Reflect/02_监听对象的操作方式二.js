@@ -19,6 +19,7 @@ const objProxy = new Proxy(obj, {
         console.log(`删除了target的${key}`);
         delete target[key];
     }
+    // 其他捕捉器  https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy
 });
 
 objProxy.name = '李四';
