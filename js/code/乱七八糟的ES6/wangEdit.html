@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/wangeditor@latest/dist/wangEditor.min.js"></script>
+    <div id="div1">
+        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    </div>
+    
+    <!-- 引入 wangEditor.min.js -->
+    <script type="text/javascript">
+        const E = window.wangEditor
+        // const editor = new E('#div1')
+        const editor = new E( document.getElementById('div1') )
+        // 设置上传图片
+        editor.config.uploadFileName = 'file';
+        editor.config.uploadImgServer = 'http://47.99.40.173:8989/upload/picture';
+        editor.config.uploadImgMaxSize = 30 * 1024 * 1024 // 30M
+        // 上传图片的钩子函数
+        editor.config.uploadImgHooks = {
+          success:function (xhr, editor, result) {
+          },
+          fail:function (xhr, editor, err) {
+          },
+          customInsert:function (insertImgFn,result) {
+            insertImgFn(result.data)
+          }
+
+        }
+        editor.create()
+    </script>
+</body>
+</html>
