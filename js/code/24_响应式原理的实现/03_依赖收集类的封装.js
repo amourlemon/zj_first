@@ -1,3 +1,5 @@
+// 在本文件中， 每个 depend 对应一个变量
+
 class Depend {
     constructor() {
         this.reactiveFns = [];

@@ -1,3 +1,29 @@
+// let obj = reactive({
+//     name: 'xxxx',
+//     age: 434
+// })
+// function reactive(obj) {
+//     Object.keys(obj).forEach(key => {
+//         let value = obj[key];
+//         Object.defineProperty(obj, key, {
+//             set(newVal) {
+//                 console.log(key + "发生变化了");
+//                 value = newVal;
+//             },
+//             get() {
+//                 console.log(key + '被获取了');
+//                 obj[key] = value;
+//                 return value
+//             }
+//         })
+//     })
+//     return obj;
+// }
+
+
+// obj.name = 'sss'
+// console.log(obj.age);
+
 // 保存当前需要收集的响应式函数
 let activeReactiveFn = null
 
@@ -56,23 +82,24 @@ function getDepend(target, key) {
 }
 
 function reactive(obj) {
-  return new Proxy(obj, {
-    get: function(target, key, receiver) {
-      // 根据target.key获取对应的depend
-      const depend = getDepend(target, key)
-      // 给depend对象中添加响应函数
-      // depend.addDepend(activeReactiveFn)
-      depend.depend()
-  
-      return Reflect.get(target, key, receiver)
-    },
-    set: function(target, key, newValue, receiver) {
-      Reflect.set(target, key, newValue, receiver)
-      // depend.notify()
-      const depend = getDepend(target, key)
-      depend.notify()
-    }
+  // {name: "why", age: 18}
+  // ES6之前, 使用Object.defineProperty
+  Object.keys(obj).forEach(key => {
+    let value = obj[key]
+    Object.defineProperty(obj, key, {
+      get: function() {
+        const depend = getDepend(obj, key)
+        depend.depend()
+        return value
+      },
+      set: function(newValue) {
+        value = newValue
+        const depend = getDepend(obj, key)
+        depend.notify()
+      }
+    })
   })
+  return obj
 }
 
 // 监听对象的属性变量: Proxy(vue3)/Object.defineProperty(vue2)
@@ -90,7 +117,7 @@ watchFn(() => {
   console.log(infoProxy.address)
 })
 
-// infoProxy.address = "北京市"
+infoProxy.address = "北京市"
 
 const foo = reactive({
   name: "foo"
@@ -100,7 +127,5 @@ watchFn(() => {
   console.log(foo.name)
 })
 
-// foo.name = "bar"
-console.log(foo.name);
-
-
+foo.name = "bar"
+foo.name = "hhh"

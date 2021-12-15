@@ -36,7 +36,7 @@ const objProxy = new Proxy(obj, {
     set(target, key, newVal, receiver) {
         if(Reflect.set(target, key, newVal, receiver)) {
             // const objMap = targetMap.get(target);
-            const keyDepend = getDepend(target, key);
+            const keyDepend = getDepend(target, key)
             keyDepend.notify();
         }
     },
