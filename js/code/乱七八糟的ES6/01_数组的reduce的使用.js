@@ -10,15 +10,9 @@
 
 
 
-// 1. 统计 str 中的元素个数，并打印出来 
-const str = 'fsdfasetaertafgfsdfadfgsfsdf';
-let con = str.split('').reduce((x, y) => {
-    (x[y]++) || (x[y] = 1)
-    return x
-}, {})
+
 
 console.log(con);
-
 // 2. 统计数组中的名字 并打印
 let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice', 'Bruce'];
 
