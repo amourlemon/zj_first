@@ -36,3 +36,4 @@ console.log('-----------------------------------------------');
 console.log(generator.next());
 console.log(generator.next());
 console.log(generator.next());
+console.log(generator.next()); // 此时的 done 为 true， 但是执行了最后的代码
