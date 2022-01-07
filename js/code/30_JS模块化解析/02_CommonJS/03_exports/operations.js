@@ -10,6 +10,7 @@ function foo() {
 // module.exports = {};
 // exports = module.exports
 // 所以导出的实际上依旧是 module.exports
+// 这样写实际上是为了符合 CommonJS社区中的规范, 但是在node下 已经很少使用
 
 
 // 当 exports 没有更换引用时,执行导出操作仍旧会导出
