@@ -9,4 +9,4 @@
 import('./foo.js').then(res => {
     console.log(res.name);
 })
-console.log('后面的代码不会立即执行');
+console.log('后面的代码不会立即执行吗');
