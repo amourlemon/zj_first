@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<script>
+    console.log(new Date()); // Mon Jan 17 2022 11:36:55 GMT+0800 (中国标准时间)
+    function timeDifference() {
+        let start = new Date(); // 开始时间
+        let end = new Date('Mon Jan 17 2022 12:00:00 GMT+0800'); // 结束时间
+        let startDate = new Date(start).getTime();
+        let endDate = new Date(end).getTime();
+        let dateCha = endDate - startDate;
+        //计算出相差天数
+        let days = Math.floor(dateCha / (24 * 3600 * 1000));
+        //计算出小时数
+        let leave1 = dateCha % (24 * 3600 * 1000); //计算天数后剩余的毫秒数
+        let hours = Math.floor(leave1 / (3600 * 1000));
+        //计算相差分钟数
+        let leave2 = leave1 % (3600 * 1000); //计算小时数后剩余的毫秒数
+        let minutes = Math.floor(leave2 / (60 * 1000)); // 分
+        //计算相差秒数
+        let leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数
+       let seconds = Math.round(leave3 / 1000); // 秒
+        console.log(days + "天 " + hours + "小时 " + minutes + '分');
+    }
+
+    timeDifference();
+
+
+
+
+</script>
+</body>
+</html>
