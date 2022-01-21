@@ -1,0 +1,1 @@
+// window 作为全局对象，自带许多属性方法 Date()  SetTimeOut....等等

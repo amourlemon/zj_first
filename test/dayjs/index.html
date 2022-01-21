@@ -10,9 +10,9 @@
     
 <script>
     console.log(new Date()); // Mon Jan 17 2022 11:36:55 GMT+0800 (中国标准时间)
-    function timeDifference() {
+    function timeDifference(format = '剩余DD天hh时mm分ss秒') {
         let start = new Date(); // 开始时间
-        let end = new Date('Mon Jan 17 2022 12:00:00 GMT+0800'); // 结束时间
+        let end = new Date('Mon Jan 19 2022 16:30:00 GMT+0800'); // 结束时间
         let startDate = new Date(start).getTime();
         let endDate = new Date(end).getTime();
         let dateCha = endDate - startDate;
@@ -26,11 +26,21 @@
         let minutes = Math.floor(leave2 / (60 * 1000)); // 分
         //计算相差秒数
         let leave3 = leave2 % (60 * 1000); //计算分钟数后剩余的毫秒数
-       let seconds = Math.round(leave3 / 1000); // 秒
-        console.log(days + "天 " + hours + "小时 " + minutes + '分');
+        let seconds = Math.round(leave3 / 1000); // 秒
+
+        let preArr = Array.apply(null, Array(10)).map(function (elem, index) {
+            return  index;
+        });
+        let newTime = format.replace(/DD/g, preArr[days] || days)
+      .replace(/hh/g, preArr[hours] || hours)
+      .replace(/mm/g, preArr[minutes] || minutes)
+      .replace(/ss/g, preArr[seconds] || seconds);
+      if (dateCha > 0) return newTime 
+      return '已完结'
+
     }
 
-    timeDifference();
+    console.log(timeDifference());
 
 
 
