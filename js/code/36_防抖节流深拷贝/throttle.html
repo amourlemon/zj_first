@@ -12,7 +12,9 @@
     <script src="https://cdn.jsdelivr.net/npm/underscore@1.13.2/underscore-umd-min.js"></script>
     <!-- <script src="./05_节流的基本实现-v1.js"></script> -->
     <!-- <script src="./06_节流的基本实现-leading-v2.js"></script> -->
-    <script src="./07_节流的基本实现trailing-v3.js"></script>
+    <!-- <script src="./07_节流的基本实现trailing-v3.js"></script> -->
+    <!-- <script src="./08_节流的基本实现-cancel-v4.js"></script> -->
+    <script src="./09_节流的基本实现-返回值-v5.js"></script>
     <script>
         const inputEl = document.querySelector('input');
         let counter = 0;
@@ -22,9 +24,12 @@
         }
         // 节流不仅是在最开始的时候进行请求，直至下一次的开始也会进行请求
         // inputEl.oninput = _.throttle(inputFn, 2000);
-        inputEl.oninput = diyThrottle(inputFn, 3000, {leading: true});
+        const _throttle = diyThrottle(inputFn, 3000, {leading: true, trailing: true, callBackFn: (res) => {
+            console.log(res);
+        }})
+        inputEl.oninput = _throttle;
         const cancelBtn = document.querySelector('#cancel');
-        cancelBtn.onclick = changeDebounce.cancel;
+        cancelBtn.onclick = _throttle.cancel;
     </script>
 </body>
 </html>
