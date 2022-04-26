@@ -40,9 +40,41 @@
 
     }
 
-    console.log(timeDifference());
+    // console.log(timeDifference());
 
-
+/**
+ * @param {number[]} prices
+ * @return {number}
+ */
+ var maxProfit = function(prices) {
+    let sum = 0;
+    let sum1 = 0;
+    let min = prices[0];
+    let tempSum =  0
+    debugger
+    for(let i = 1; i < prices.length; i++) {
+        if(min > prices[i]) {
+            min = prices[i];
+        }
+        sum1 = prices[i] -min;          
+        tempSum = Math.max(tempSum, prices[i] - min)
+        if(prices[i+1]) {
+            let sum2 = 0;
+            let min2 = prices[i+1];
+            for(let j = i+2; j < prices.length; j++) {
+                if(min2 > prices[j]) {
+                    min2 = prices[j]
+                }
+                sum2 = Math.max(sum2, prices[j] - min2);
+                sum = Math.max(sum, sum1+sum2);
+            }
+        }
+        sum = Math.max(sum, tempSum)
+    }
+    return sum
+};
+console.log(maxProfit(
+    [2,1,4,5,2,9,7]));
 
 
 </script>
