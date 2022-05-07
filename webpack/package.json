@@ -1,5 +1,9 @@
 {
   "dependencies": {
-    "loadsh": "^0.0.4"
+    "loadsh": "^0.0.4",
+    "webpack-merge": "^5.8.0"
+  },
+  "devDependencies": {
+    "terser-webpack-plugin": "^5.3.1"
   }
 }
