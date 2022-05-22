@@ -7,7 +7,6 @@ function diyThrottle(fn, internal, options = {
         trailing
     } = options
     let lastTime = leading ? 0 : new Date().getTime();
-    console.log(lastTime);
     const _throttle = function (...args) {
         const nowTime = new Date().getTime();
         // 第一次执行， 并且 leading 为 false 的情况下

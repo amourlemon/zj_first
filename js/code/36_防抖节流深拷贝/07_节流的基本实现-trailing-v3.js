@@ -3,6 +3,8 @@ function diyThrottle(fn, interval, options = {
   trailing: true
 }) {
   let lastTime = 0;
+  // leading 表示 是否在第一次执行前调用
+  // trailing 表示 是否在最后一次执行后调用
   const { leading, trailing } = options;
   let timer = null;
   const _throttle = function (...args) {
