@@ -1,0 +1,1 @@
+(()=>{const e=document.createElement("button");e.textContent="排序",document.body.appendChild(e);let t=[4,3,1,8],n=new Worker("worker.js");e.addEventListener("click",(()=>{n.postMessage(t)})),n.onmessage=e=>{resultArr.textContent=e.data}})();
