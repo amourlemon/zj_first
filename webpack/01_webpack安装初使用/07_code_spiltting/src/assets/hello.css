@@ -1,0 +1,18 @@
+@font-face {
+    /* 自定义字体名称 */
+    font-family: 'iconfont';
+    src: url('./iconfont.ttf') format('truetype');
+}
+
+body {
+    color: aqua;
+}
+
+.bacImg {
+    background: url('./respect.jpg');
+}
+
+.icon {
+    font-family: 'iconfont';
+    font-size: 30px;
+}
