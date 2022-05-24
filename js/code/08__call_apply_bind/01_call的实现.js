@@ -16,7 +16,7 @@ Function.prototype.zjcall = function (thisArg, ...argArray) {
   var res;
   if (!argArray) {
     // 如果使用 this() ,那么在进行函数的显示绑定时 绑定的不再是特定的绑定数据，而是  globalObject
-    res = thisArg.fn();
+    res = thisArg.fn;
     res = fn();
   } else {
     // arr = [3,4,5,6]
