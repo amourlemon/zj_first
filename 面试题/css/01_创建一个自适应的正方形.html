@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            display: flex;
+        }
+        .square1 {
+            /* 使用 vw 实现 */
+            /* 知识点：100 个 vw 就是整个可视宽度的大小 */
+            width: 10%;
+            height: 10vw;
+            background-color: tomato;
+        }
+        .square2 {
+            /* 利用元素的 margin/padding 百分比是相对父元素 width 的性质来实现的 */
+            width: 20%;
+            height: 0;
+            padding-top: 20%;
+            background-color: orange;
+        }
+        .square3 {
+            /* 利用子元素的 margin-top 来实现 */
+            width: 30%;
+            background-color: yellow;
+            overflow: hidden;
+        }
+        .square3::after {
+            content: '';
+            display: block;
+            margin-top: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="square1"></div>
+    <div class="square2"></div>
+    <div class="square3"></div>
+</body>
+</html>
