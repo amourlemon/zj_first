@@ -45,7 +45,7 @@ Object.defineProperty(Student.prototype,'constructor', {
 })
 
 
-inheritUtils(Teacher, Person);
+inheritPrototype(Teacher, Person);
 
 var stu1 = new Student('张三', 23, 'sh', 423423);
 console.log(stu1);

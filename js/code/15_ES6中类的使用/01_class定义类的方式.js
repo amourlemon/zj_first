@@ -7,7 +7,7 @@ class Person {
 
 // }
 function Student() {}
-var p1 = new Person();
+console.log('p1', p1);
 var stu1 = new Student();
 // Person 类的原型对象，实际上就是构造函数的原型对象
 console.log(Person.prototype);

@@ -6,33 +6,33 @@ class Group {
         this.crews = crews || [];
     }
     entry(crew) {
-            this.crews.push(crew);
-        }
-        [Symbol.iterator]() {
-            let index = 0;
-            return {
-                next: () => {
-                    if (index < this.crews.length) {
-                        return {
-                            done: false,
-                            value: this.crews[index++]
-                        }
-                    } else {
-                        return {
-                            done: true,
-                            value: undefined
-                        }
+        this.crews.push(crew);
+    }
+    [Symbol.iterator]() {
+        let index = 0;
+        return {
+            next: () => {
+                if (index < this.crews.length) {
+                    return {
+                        done: false,
+                        value: this.crews[index++]
                     }
-                },
-                return: () => {
-                    console.log('迭代器提前终止了');
+                } else {
                     return {
                         done: true,
                         value: undefined
                     }
                 }
+            },
+            return: () => {
+                console.log('迭代器提前终止了');
+                return {
+                    done: true,
+                    value: undefined
+                }
             }
         }
+    }
 }
 
 const group1 = new Group('第一组', ['zs', 'ls']);

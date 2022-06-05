@@ -9,7 +9,7 @@ async function async2() {
 }
 
 console.log('script start')
-
+setImmediate(() => console.log('setImmediate'))
 setTimeout(function () {
     console.log('setTimeout0')
 }, 0)
@@ -18,7 +18,7 @@ setTimeout(function () {
     console.log('setTimeout2')
 }, 300)
 
-setImmediate(() => console.log('setImmediate'));
+;
 
 process.nextTick(() => console.log('nextTick1'));
 

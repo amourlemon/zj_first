@@ -7,19 +7,19 @@ function foo() {
     console.log('foo 中的打印信息');
 }
 
-export {
-    name,
-    age as
-    default,
-    foo
-}
+// export {
+//     name,
+//     age as
+//     default,
+//     foo
+// }
 
 // 或者是 defaulet 只能导出一个
 // export default name;
 
 // 还有一种方式是： 在项目中使用的这个方法
-// export default {
-//     name,
-//     age,
-//     foo
-// }
+export default {
+    name,
+    age,
+    foo
+}

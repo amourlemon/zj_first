@@ -11,6 +11,6 @@ require.config({
     }
 })
 
-require(["aaa"], function (aaa) {
-    console.log('main：', aaa);
+require(["aaa", "bbb"], function (aaa) {
+    console.log('main：', aaa)
 })

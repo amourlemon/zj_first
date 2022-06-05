@@ -1,6 +1,6 @@
 const p1 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        reject(1111111);
+        resolve(1111111);
     }, 1000)
 })
 
@@ -21,7 +21,7 @@ const p3 = new Promise((resolve, reject) => {
 
 // 如果全部传入的 Promise 对象状态 为 reject，那么才会进入 catch 中
 Promise.any([p1, p2, p3]).then(res => {
-    console.log('res:', res);
+    console.log('res:', res); //1111111
 }).catch(err => {
     console.log('err:', err); // err: AggregateError: All promises were rejected
     console.log('errs:', err.errors);  // [1111111, 222222, 3333333]
