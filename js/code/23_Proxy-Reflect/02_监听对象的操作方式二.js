@@ -22,8 +22,10 @@ const objProxy = new Proxy(obj, {
     // 其他捕捉器  https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Proxy
 });
 
-objProxy.name = '李四';
-console.log(obj.name);
-console.log(objProxy.age);
-delete objProxy['age']
-console.log(obj);
+// objProxy.name = '李四';
+// console.log(obj.name);
+// console.log(objProxy.age);
+// delete objProxy['age']
+// console.log(obj);
+obj.address = 'dfs'
+console.log(objProxy.address);

@@ -15,7 +15,7 @@
 
 async function async1() {
     console.log('async1 start')
-    await async2();
+    await async2(); // 被 await 修饰的方法，无论其是不是放在了微任务队列当中，其后面的方法必放在微任务队列中
     console.log('async1 end')
 }
 

@@ -7,7 +7,7 @@ function _classCallCheck(instance, Constructor) {
   }
   
   var Person = function Person() {
-      console.log(Person);
+    // 这里的 this，就是Person实例的构造函数
     _classCallCheck(this, Person);
   };
 
@@ -16,9 +16,9 @@ function _classCallCheck(instance, Constructor) {
 var p1 = new Person();
 
 function Student() {
-    console.log(this);
-    console.log(this instanceof Student);
-    console.log(Student);
+    // console.log(this);
+    // console.log(this instanceof Student);
+    // console.log(Student);
 }
 
 Student(); // this 是 win

@@ -28,3 +28,4 @@ const infoProxy = new Proxy(info, {
 infoProxy.name = '李四'
 console.log(infoProxy.name);
 
+

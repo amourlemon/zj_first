@@ -11,7 +11,11 @@ function foo(num1, num2) {
     // console.log(newArray);
 
     // 方式三： 使用 ES6 的语法
-    var newArray = [...arguments];
+    // var newArray = [...arguments];
+    // console.log(newArray);
+    
+    // 方法四： Array.from
+    var newArray = Array.from(arguments);
     console.log(newArray);
 }
 

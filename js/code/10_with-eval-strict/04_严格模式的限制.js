@@ -3,9 +3,10 @@
 // 2. 严格模式下  不允许函数的形参出现相同的
 
 // 3. 静默错误
+// 'use strict'
 //  true.age = 12;
 // var obj = {};
-// Object.defineProperties(obj, "name", {
+// Object.defineProperty(obj, "name", {
 //     writable: false,
 //     value: 'why'
 // })

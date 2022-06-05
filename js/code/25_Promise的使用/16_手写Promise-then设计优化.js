@@ -7,10 +7,14 @@ class DIYPromise{
         this.fullfilledFns = [];
         this.rejectedFns = [];
         this.status = PROMISE_STATUS_PENDDING;
+        console.log(1111111111);
         const resolve = (value) => {
             this.value = value;
+            console.log(22222222222);
             if(this.status === PROMISE_STATUS_PENDDING) {
+                console.log(5555555);
                 queueMicrotask(() => {
+                    console.log(33333333333);
                     if(this.status !== PROMISE_STATUS_PENDDING) return;
                     this.status = PROMISE_STATUS_FULFILLED;
                     value && this.fullfilledFns.forEach(fn => {
@@ -21,6 +25,7 @@ class DIYPromise{
         };
         const reject = (reason) => {
             this.reason = reason;
+            console.log(4444444);
             if(this.status === PROMISE_STATUS_PENDDING) {
                 queueMicrotask(() => {
                     if(this.status !== PROMISE_STATUS_PENDDING) return;
@@ -31,7 +36,9 @@ class DIYPromise{
                 })
             }
         }
+        console.log(6666666);
         executor(resolve, reject);
+        console.log(777777777);
     }
     then(fulfilled, rejected) {
         if(this.status === PROMISE_STATUS_FULFILLED && fulfilled) {
@@ -47,7 +54,7 @@ class DIYPromise{
 
 const promise = new DIYPromise((resolve, reject) => {
     resolve(222);
-    reject(111);
+    // reject(111);
 })
 // 因为微任务 异步执行，多次调用 then 方法会将 传入的 fulfilled/rejected 覆盖掉
 promise.then(res => {
@@ -63,10 +70,10 @@ promise.then(res => {
 })
 
 
-setTimeout(()=> {
-    promise.then(res => {
-        console.log('res3:', res);
-    }, err => {
-        console.log('err3:', err);
-    })
-}, 2000) 
+// setTimeout(()=> {
+//     promise.then(res => {
+//         console.log('res3:', res);
+//     }, err => {
+//         console.log('err3:', err);
+//     })
+// }, 2000) 

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            text-align: center;
+            font-size: 30px;
+        }
+        .container_header, .container_footer {
+            flex-shrink: 0;
+            padding: 16px;
+        }
+        .container_header {
+            background-color: antiquewhite;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        }
+        .container_footer {
+            background-color: aqua;
+            border-top: 1px solid rgba(0, 0, 0, 0.3);
+        }
+        .container_main {
+            flex-grow: 1;
+            display: flex;
+        }
+        .container_left {
+            min-width: 150px;
+            width: 20%;
+            background-color: aliceblue;
+        }
+        .container_right {
+            min-width: 120px;
+            width: 25%;
+            background-color: cadetblue;
+        }
+        .container_center {
+            /* min-width: 250px; */
+            flex-grow: 1;
+            background-color: brown;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="container_header">头部信息</header>
+        <main class="container_main">
+            <aside class="container_left">左部信息</aside>
+            <article class="container_center">1898年11月22日，朱自清生於江蘇省東海縣。1901年，父親朱鴻鈞到高郵邵伯鎮做官，入讀私塾，啟蒙識字。六岁時，随父母定居扬州。朱自清在《我是扬州人》一文中回忆道：“我家是从先祖才到江苏东海做小官。东海就是海州，现在是陇海路的终点。我就生在海州……我对海州话还有亲热感，因为父亲的扬州话里夹着不少海州口音。”[4]1913年，考入安徽旅揚公學高等小學。畢業後，考入江蘇省立第八中學。
+
+                1916年，考入國立北京大學預科，翌年，升大學部哲學系，積極參加五四運動，奉父母之命與揚州名醫武威三的女兒武鍾謙結婚。1917年，家庭經濟困頓，為惕勵自己不隨流俗合汙，改名自清。[5]同年，參與“平民教育講演團”和鄧中夏結交。1919年，開始寫作新詩，參加新潮社，處女作為《睡吧，小小的人》而後收錄於《雪朝》。五四運動時，朱自清也參與其中。1920年6月，從國立北京大學哲學系畢業後，返回杭州，任教於浙江省立第一師範。11月，文學研究會正式成立，其為早期會員之一。1921年10月10日，晨光社成立，朱自清和葉聖陶都是該社顧問。1922年初春，迫於家庭經濟，應浙江省立第六師範校長鄭鶴春之邀，到台州任教。因汪靜之介紹，結識馮雪峰與潘漠華。後與俞平伯、葉聖陶、劉延陵創辦《詩》月刊，為新詩運動以來最早的詩刊。1923年，開始寫作散文，處女作《槳聲燈影裡的秦淮河》一發表及獲好評，周作人曾讚譽為“白話美術文的模範”。3月，朱自清来温州，在温州中学任教。他所撰的《十中校歌》，至今传唱不绝，其中的名句“英奇匡国，作圣启蒙”成为温州中学校训。在温期间，朱自清还写有《温州的踪迹》散文四篇，其中的名篇《绿》描写仙岩梅雨潭迷人景致，长期作为范文收入中学语文教科书。1924年2月，到寧波浙江省立第四中學任教，同時到春暉中學兼課。出版詩和散文集《蹤跡》。在思想和藝術上呈現出一種純正樸實的新鮮作風。其中《光明》《新年》《煤》《送韓伯畫往俄國》《羊群》《小艙中的現代》等，熱切地追求光明，憧憬未來，有力地抨擊黑暗的世界，揭露血淚的人生，為初期新詩中難得的作品。
+                
+                1925年，主編《我們的六月》出版，不久，便到清華學校任教（後改名國立清華大學），開始從事文學研究，創作方面則轉以散文為主。1928年，第一本散文集《背影》出版，集中所作，為個人真切的見聞和獨到的感受，以平淡樸素而又清新秀麗的優美文筆獨樹一幟。1929年，髮妻武鍾謙多年積勞成疾罹患肺病去世，年僅31歲。1930年8月，楊振聲任青島大學校長，朱自清代理中文系主任。</article>
+            <nav class="container_right">右部信息</nav>
+        </main>
+        <footer class="container_footer">页脚信息</footer>
+    </div>
+</body>
+</html>

@@ -20,7 +20,7 @@ promise.then(res => {
 let promiseRes = promise.then(res => {
     return res;
 })
-console.log(promiseRes);
+console.log('======',promiseRes);
 promiseRes.then(res => {
     console.log(res);
 })
