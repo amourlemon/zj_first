@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .img_box {
+  height:200px;
+  width: 200px;
+  border: 1px solid black
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><a>点击获取图片</a></h1>
+        <div class="img_box">
+          <img>
+        </div>
+      </div>
+
+
+      <script>
+          const button = document.querySelector("a");
+const img = document.querySelector("img");
+
+const ajaxPromise = function () {
+  const promise = new Promise((resolve, reject) => {
+    //    创建 xhr 实例
+    const xhr = new XMLHttpRequest();
+    //    打开请求链接，请求数据
+    xhr.open(
+      "get",
+      "http://47.99.40.173:8086/yuetao-server/home/getStore",
+      true
+    );
+console.log("ddd", xhr.readyState);
+    xhr.onreadystatechange = () => {
+          console.log("eeee", xhr.readyState);
+      if (xhr.readyState === 4) {
+        if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
+          console.log("请求成功", xhr);
+          console.log(JSON.parse(xhr.response))
+          resolve(xhr.responseURL);
+        } else {
+          reject(xhr.statusText);
+        }
+      } else {
+        reject(xhr.statusText);
+      }
+    };
+    xhr.send(null)
+  });
+  return promise;
+};
+button.addEventListener("click", () => {
+  console.log("点击了按钮", typeof ajaxPromise);
+  ajaxPromise()
+    .then((res) => {
+      console.log("图片路径：", res);
+      img.src = res;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+      </script>
+</body>
+</html>
