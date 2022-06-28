@@ -111,8 +111,8 @@ const promise = new DIYPromise((resolve, reject) => {
 // 因为微任务 异步执行，多次调用 then 方法会将 传入的 fulfilled/rejected 覆盖掉
 promise.then(res => {
     console.log('res1:', res);
-    // return 'bbbb'
-    throw new Error('Error Message');
+    return 'bbbb'
+    // throw new Error('Error Message');
 }, err => {
     console.log('err1:', err)
     throw new Error('Error Message')
