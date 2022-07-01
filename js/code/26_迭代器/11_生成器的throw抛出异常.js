@@ -39,3 +39,4 @@ console.log('-----------------------------------------------');
 console.log(generator.next());
 console.log(generator.throw('类型错误'));
 console.log(generator.next());
+// console.log(generator.next());

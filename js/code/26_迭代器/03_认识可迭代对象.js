@@ -39,3 +39,6 @@ console.log(iterator2.next());
 for (const item of iterableObj) {
     console.log(item);
 }
+
+const arr = ['sdfs', 'sdf', 'were'];
+console.log(arr[Symbol.iterator]);
