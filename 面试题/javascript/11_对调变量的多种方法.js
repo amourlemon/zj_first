@@ -39,7 +39,7 @@ console.log(a, b);
   b = 5;
 
   a = a ^ b;
-  b = b ^ a;
+  b = a ^ b;
   a = a ^ b;
   console.log(a, b);
 
@@ -55,3 +55,12 @@ a = a.a;
 
 
 console.log(a, b)
+
+
+const nums = [1,2,3,4];
+let left = 1, right = 2
+
+nums[left] = nums[left] ^ nums[right];
+nums[right] = nums[left] ^ nums[right];
+nums[left] = nums[left] ^ nums[right];
+console.log(nums)

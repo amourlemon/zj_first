@@ -30,3 +30,4 @@ const generator = foo(10);
 console.log('第一次执行：', generator.next());
 console.log('第二次执行：', generator.next(50));
 console.log('第三次执行：', generator.next(60));
+console.log('第四次执行：', generator.next());

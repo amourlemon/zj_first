@@ -49,3 +49,5 @@ console.log(FUN.c); // 在沿着原型链去寻找的时候，产看自身没有
 function foo() {}
 
 console.log(foo.__proto__ === Function.prototype)
+
+console.log(FUN.prototype.__proto__ === Object.prototype)

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 80px;
+            width: 80px;
+            background-color: cornsilk;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+        const div = document.querySelector('div')
+        let x = 0;
+        function raf() {
+            requestAnimationFrame(function () {
+                if (x === 500) return
+                // 进行动画设置
+                div.style.left = (x++) + 'px'
+                // 递归实现动画持续加载
+                raf()
+            })
+        }
+
+        raf()
+
+        // setInterval()
+        // 1s 有60帧，使用 setInterval 的时候，可能出现空帧（造成渲染帧的浪费），可能出现跳帧（造成卡顿）
+    </script>
+</body>
+
+</html>

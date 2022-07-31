@@ -8,7 +8,7 @@ let person = {
 }
 
 function defineProperty(obj, key, value) {
-    // 监听对象的某一属性是对象的类型
+    //! 监听对象的某一属性是对象的类型
     observe(value);
     Object.defineProperty(obj, key, {
         get() {
@@ -24,7 +24,6 @@ function defineProperty(obj, key, value) {
             observe(value)
         }
     })
-
 }
 
 function observe(obj) {

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-size: 4em;
+            /* writing-mode: horizontal-tb; 默认值 t 表示 top； b 表示 bottom */
+            writing-mode: vertical-rl;
+        }
+
+        .author {
+            font-size: 0.3em;
+            text-align: end;
+            height: 190px;
+        }
+
+        .year {
+            /* 仅影响纵向模式 */
+            text-orientation: upright;
+            /* 竖排变横排 */
+            text-combine-upright: all;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>春晓</h2>
+    <p class="author">孟浩然 <span class="year">689年</span>～<span class="year">740年</span></p>
+    <p>春眠不觉晓</p>
+    <p>处处闻啼鸟</p>
+    <p>夜来风雨声</p>
+    <p>花落知多少</p>
+</body>
+
+</html>

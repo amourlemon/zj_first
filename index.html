@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,22 +11,24 @@
             width: 1000px;
             height: 1000px;
         }
+
         .img {
             width: 100px;
             height: 100px;
         }
+
         .ellipsis {
             width: 100px;
             height: 40px;
             line-height: 20px;
-            border:solid 1px black;
-            position: relative;        
+            border: solid 1px black;
+            position: relative;
             /*多行文本省略*/
-            overflow : hidden;
+            overflow: hidden;
             text-overflow: ellipsis;
 
             display: -moz-box;
-            -moz-line-clamp: 2!important;
+            -moz-line-clamp: 2 !important;
             -moz-box-orient: vertical;
 
             /*! autoprefixer: off */
@@ -33,6 +36,7 @@
             -webkit-line-clamp: 2;
             -webkit-box-orient: vertical;
         }
+
         .ellipsis::after {
             background: linear-gradient(to right, rgba(255, 255, 255, 0), #FFFFFF 50%) repeat scroll 0 0 rgba(0, 0, 0, 0);
             bottom: 0;
@@ -43,6 +47,7 @@
         }
     </style>
 </head>
+
 <body>
     <form action="">
         <input type="email">
@@ -51,51 +56,69 @@
     <img class="img" src="https://static.runoob.com/images/demo/demo1.jpg" alt="拖放">
     <div class="ellipsis">dfsdfsdfasdfsadfasdfasdfasdfasfsd</div>
     <label for="mobile">Number:</label>
-<input type="text" id="mobile"/>
-<label>Date:<input type="text"/></label>
+    <input type="text" id="mobile" />
+    <label>Date:<input type="text" /></label>
     <script>
-        function defineReactive(data, key, value) {
-            Object.defineProperty(data, key, {
-                configurable: true,
-                enumerable: true,
-                get: function defineGet() {
-                    console.log(`get key: ${key} value: ${value}`);
-                    return value
-                },
-                set: function defineSet(newVal) {
-                    console.log(`set key: ${key} value: ${value}`);
-                    value = newVal
-                },
-            })
-        }
+        // function defineReactive(data, key, value) {
+        //     Object.defineProperty(data, key, {
+        //         configurable: true,
+        //         enumerable: true,
+        //         get: function defineGet() {
+        //             console.log(`get key: ${key} value: ${value}`);
+        //             return value
+        //         },
+        //         set: function defineSet(newVal) {
+        //             console.log(`set key: ${key} value: ${value}`);
+        //             value = newVal
+        //         },
+        //     })
+        // }
 
-        function observe(data) {
-            Object.keys(data).forEach(key => {
-                defineReactive(data, key, data[key])
-            })
-        }
-        function closure() {
-            let i = 1;
-            return function() {
-                i++;
-                if(i%2 === 0) {
-                    console.log(0);
-                } else {
-                    console.log(1);
+        // function observe(data) {
+        //     Object.keys(data).forEach(key => {
+        //         defineReactive(data, key, data[key])
+        //     })
+        // }
+        // function closure() {
+        //     let i = 1;
+        //     return function() {
+        //         i++;
+        //         if(i%2 === 0) {
+        //             console.log(0);
+        //         } else {
+        //             console.log(1);
+        //         }
+        //     }
+        // }
+        // let add = closure();
+        // console.log('--------------------闭包的应用-----------');
+        // add()
+        // add()
+        // add()
+        // console.log('--------------------闭包的应用-----------');
+        // let arr = [1,4,2];
+        // observe(arr);
+        // arr[1] = 2
+        // console.log(arr[1]);
+        // arr.push(3)
+
+        var findRepeatNumber = function (nums) {
+            const len = nums.length;
+            debugger
+            for (let i = 0; i < len; i++) {
+                while (nums[i] != i) {
+                    if (nums[i] == nums[nums[i]]) {
+                        return nums[i];
+                    }
+                    const temp = nums[i];
+                    nums[i] = nums[temp];
+                    nums[temp] = temp;
                 }
             }
-        }
-        let add = closure();
-        console.log('--------------------闭包的应用-----------');
-        add()
-        add()
-        add()
-        console.log('--------------------闭包的应用-----------');
-        let arr = [1,4,2];
-        observe(arr);
-        arr[1] = 2
-        console.log(arr[1]);
-        arr.push(3)
+            return -1;
+        };
+        console.log(findRepeatNumber([2, 3, 1, 2, 5, 3]))
     </script>
 </body>
+
 </html>

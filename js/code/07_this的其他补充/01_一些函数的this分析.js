@@ -11,3 +11,4 @@ boxEl.addEventListener('click', function() {
 })
 
 //   说明在此类高阶函数的内部进行了某种隐式的绑定
+

@@ -23,3 +23,4 @@ const person2 = deepClone(person1)
 person2.friend.name = 'ww';
 console.log(person1);
 console.log(person2);
+

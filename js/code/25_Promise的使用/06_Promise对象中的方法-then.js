@@ -1,5 +1,5 @@
 // console.log(Object.getOwnPropertyDescriptors(Promise.prototype));
-// 1. Promise 中的 then 方法 可以多次调用 （并不是脸是调用）
+// 1. Promise 中的 then 方法 可以多次调用 （并不是链式调用）
 
 const promise = new Promise((resolve, reject) => {
     resolve('ssss')

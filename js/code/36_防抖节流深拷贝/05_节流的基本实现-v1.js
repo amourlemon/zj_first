@@ -10,3 +10,6 @@ function diyThrottle(fn, inteval) {
     }
     return _throttle;
 }
+let str = 'string';
+str.age = 23;
+console.log(str.age)

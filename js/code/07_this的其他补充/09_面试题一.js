@@ -7,20 +7,22 @@ var person = {
 };
 function sayName() {
   var sss = person.sayName;
-  sss(); 
-  person.sayName(); 
-  (person.sayName)(); 
-  (b = person.sayName)(); 
+  sss(); // var 声明的变量作用域提升 window
+  person.sayName(); // 'person 隐式调用'
+  (person.sayName)(); // window
+  (b = person.sayName)(); // window
 }
-sayName();
+// sayName();
+
+(person.sayName)()
 
 
-function sayName() {
-    var sss = person.sayName;
-    // 独立函数调用，没有和任何对象关联
-    sss();  // window
-    // 关联
-    person.sayName(); // person
-    (person.sayName)(); // person
-    (b = person.sayName)(); // window
-  }
+// function sayName() {
+//     var sss = person.sayName;
+//     // 独立函数调用，没有和任何对象关联
+//     sss();  
+//     // 关联
+//     person.sayName(); 
+//     (person.sayName)(); 
+//     (b = person.sayName)(); 
+//   }

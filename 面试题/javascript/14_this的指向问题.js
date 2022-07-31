@@ -1,7 +1,7 @@
 const obj = {
     name: 'zs',
     friends: ['ls', 'ww', 'zl'],
-    foo: function () {
+    foo:  function() {
         this.friends.forEach(function () {
             console.log(this.name);
         })
