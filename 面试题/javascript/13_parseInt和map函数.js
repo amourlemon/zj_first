@@ -9,3 +9,4 @@ console.log(parseInt('9', 0))
 var arr = ['123', '23', '232']
 
 arr.map(console.log)
+

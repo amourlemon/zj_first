@@ -178,8 +178,30 @@
 
 // console.log(Object.__proto__.__proto__)
 
-const urlS = 'http://www.baidu.com/artical/list?auth=abc';
+// const urlS = 'http://www.baidu.com/artical/list?auth=abc';
 
-const urlObj = new URL(urlS)
+// const urlObj = new URL(urlS)
 
-console.log(urlObj);
+// console.log(urlObj);
+console.time('parse');
+const a = 1;
+const b = 2;
+(function add(a, b) {
+    return a + b
+})(a, b)
+
+console.timeEnd('parse');
+
+const makeAPoint = () => {
+    class Point {
+        constructor(x, y) {
+            this.x = x;
+            this.y = y
+        }
+    }
+    return new Point(1, 2)
+}
+
+const a1 = makeAPoint()
+const b1 = makeAPoint();
+console.log(%HaveSameMap(a1, b1));

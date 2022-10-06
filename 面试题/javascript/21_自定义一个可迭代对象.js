@@ -22,7 +22,6 @@ class IteratorObjG {
                 return {done: true, value: undefined}
             }
         }
-
     }
 }
 

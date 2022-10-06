@@ -68,9 +68,10 @@ function observe(obj) {
 observe(person);
 // console.log(person.friend.name)
 // person.friend.name = 'ww'
-debugger
 // person.name = {
 //     sname: '小白龙'
 // }
 // person.name.sname = '小黑'
 person.arr.push(12)
+
+console.log(person);

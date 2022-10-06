@@ -1,28 +1,3 @@
-// let obj = reactive({
-//     name: 'xxxx',
-//     age: 434
-// })
-// function reactive(obj) {
-//     Object.keys(obj).forEach(key => {
-//         let value = obj[key];
-//         Object.defineProperty(obj, key, {
-//             set(newVal) {
-//                 console.log(key + "发生变化了");
-//                 value = newVal;
-//             },
-//             get() {
-//                 console.log(key + '被获取了');
-//                 obj[key] = value;
-//                 return value
-//             }
-//         })
-//     })
-//     return obj;
-// }
-
-
-// obj.name = 'sss'
-// console.log(obj.age);
 
 // 保存当前需要收集的响应式函数
 let activeReactiveFn = null
@@ -37,10 +12,6 @@ class Depend {
   constructor() {
     this.reactiveFns = new Set()
   }
-
-  // addDepend(reactiveFn) {
-  //   this.reactiveFns.add(reactiveFn)
-  // }
 
   depend() {
     if (activeReactiveFn) {

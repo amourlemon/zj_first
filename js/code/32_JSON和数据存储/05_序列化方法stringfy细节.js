@@ -5,6 +5,7 @@ const obj = {
         name: "李四"
     },
     hobbies: ['篮球', '足球'],
+    foo: function() {}
     // toJSON() {
     //     return '哈哈哈哈哈'
     // }

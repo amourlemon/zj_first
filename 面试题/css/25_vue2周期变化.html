@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{animal.dog}}</div>
+        <div>{{ hobbies[0].a }}</div>
+    </div>
+    <script>
+        const app = new Vue({
+            el: '#app',
+            data() {
+                return {
+                    animal: {},
+                    hobbies: []
+                }
+            },
+            beforeCreate() {
+                console.log(this);
+                console.log('ssss');
+                // 在 beforeCreate 这个阶段， 无法访问 data 中的数据
+                // this.animal.dog = 4;
+            },
+            created() {
+                this.animal.dog = 1;
+                this.hobbies.push({ a: [{ dd: 'cccc' }] })
+            },
+            mounted() {
+                // let dog = 5;
+                // Vue.set(this.animal, this.animal['dog'], 3)
+                this.animal.dog = 2;
+                this.hobbies[0].a[0].dd = 'ccc';
+            }
+        })
+    </script>
+</body>
+
+</html>

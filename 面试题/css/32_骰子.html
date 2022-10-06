@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            padding: 12px;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            display: flex;
+        }
+
+        span {
+            width: 30px;
+            height: 30px;
+            background-color: black;
+            border-radius: 15px;
+        }
+
+        .box1 {
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box2 {
+            justify-content: space-around;
+        }
+
+        .item21 {
+            align-self: flex-start;
+        }
+
+        .item22 {
+            align-self: flex-end;
+        }
+
+        .item31 {
+            align-self: flex-start;
+        }
+
+        .item32 {
+            align-self: center;
+        }
+
+        .item33 {
+            align-self: flex-end;
+        }
+
+        .box4 {
+            flex-direction: column;
+            justify-content: space-around;
+        }
+
+        .item4 {
+            display: flex;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box box1">
+        <span></span>
+    </div>
+    <div class="box box2">
+        <span class="item21"></span>
+        <span class="item22"></span>
+    </div>
+    <div class="box box2">
+        <span class="item31"></span>
+        <span class="item32"></span>
+        <span class="item33"></span>
+    </div>
+    <div class="box box4">
+        <div class="item4">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="item4">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="box box4">
+        <div class="item4">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="item4">
+            <span></span>
+        </div>
+        <div class="item4">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <div class="box box4">
+        <div class="item4">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="item4">
+            <span></span>
+            <span></span>
+        </div>
+        <div class="item4">
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</body>
+
+</html>

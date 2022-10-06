@@ -60,7 +60,8 @@ function reactive(obj) {
 
 const obj = reactive({
     name: 'eee',
-    age: 67
+    age: 67,
+    friends: ['zs', 'ls']
 })
 
 watchFn(() => {
@@ -69,3 +70,4 @@ watchFn(() => {
 
 // console.log(obj.name);
 obj.name = 'sss'
+obj.friends.push('ww');

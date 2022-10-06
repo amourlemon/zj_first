@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+        }
+
+        .container>div {
+            height: 100px;
+            width: 100px;
+            border: 1px solid black;
+            margin: 20px;
+        }
+
+        .active {
+            /* background-color: red; */
+            border: 10px solid red !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="active"></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <button id="start">启动</button> <br /><br />
+    <button id="pause">暂停</button>
+    <script>
+        const divs = document.querySelectorAll('.container>div');
+        const startBtn = document.querySelector('#start');
+        const pauseBtn = document.querySelector('#pause')
+        // 控制是否暂停
+        let flag = false;
+        let timer = null;
+        let index = 1;
+        let pre = 0;
+        let num = 0;
+        startBtn.addEventListener('click', () => {
+            start();
+        })
+        pauseBtn.addEventListener('click', () => {
+            pause();
+        })
+        function getRandom() {
+            let a = Math.random();
+            //随机生成的数字 0-1之间
+            //乘以6之后 0-7之间
+            let b = a * 6
+            // 向下取整
+            return Math.floor(b)//向下取整
+
+        }
+        function start() {
+            flag = true;
+            requestAnimationFrame(() => {
+                if (!flag) return
+                let c = getRandom();
+                while (c === pre) {
+                    c = getRandom();
+                }
+                num += 16;
+                // 取消 active
+                if (num % (16 * 100) === 0) {
+                    divs[pre].classList.remove('active');
+                    pre = c;
+                    divs[c].classList.add('active');
+                }
+                start()
+            })
+        }
+        function pause() {
+            flag = false
+        }
+
+    </script>
+</body>
+
+</html>

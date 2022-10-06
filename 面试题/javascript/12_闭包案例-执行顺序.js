@@ -10,7 +10,7 @@
 //? 非闭包状态下
 for (var i = 0; i < 5; i++) {
     setTimeout(() => {
-        console.log(i++);
+        console.log(++i);
     }, 4000)
 }
 

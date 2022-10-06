@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div.parent {
+            width: 350px;
+            height: 400px;
+            background-color: aqua;
+            display: flex;
+            /* 这是因为 wrap-reverse 是从下向上排列的*/
+            /* flex-wrap: wrap-reverse; */
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        div.parent::after {
+            content: '';
+            /* flex: auto; */
+        }
+
+        div.parent div {
+            /* margin-left: 10px; */
+            width: 100px;
+            height: 100px;
+            /* align-self: stretch; */
+            background-color: antiquewhite;
+        }
+
+        div.parent div:hover {
+            align-self: stretch;
+        }
+
+        div.parent>div:nth-child(7) {
+            background-color: red;
+            /* margin-left: auto; */
+            /* height: 400px; */
+            /* flex: 3 0 80px; */
+        }
+
+        div.parent>div:nth-child(8) {
+            background-color: aquamarine;
+            /* margin-left: auto; */
+            /* height: 400px; */
+            /* flex: 2 0 80px; */
+        }
+
+        div.parent>div:not(:nth-child(2n)) {
+            /* background-color: black; */
+            /* margin-left: auto; */
+            /* height: 400px; */
+            /* flex: 3 0 80px; */
+        }
+
+        i {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <i></i><i></i>
+    </div>
+</body>
+
+</html>

@@ -14,6 +14,7 @@ function observe(target) {
     return new Proxy(target, {
         get(target, key, receiver) {
             console.log('get', key);
+            if(typeof target[key] === 'object') return observe(target[key])
             return Reflect.get(target, key, receiver)
         },
         set(target, key, value, receiver) {
@@ -25,4 +26,6 @@ function observe(target) {
 
 let personProxy = observe(person)
 // console.log(personProxy.friend.name);
-personProxy.arr.push(222)
+// personProxy.arr.push(222)
+// personProxy.arr[2] = 66
+

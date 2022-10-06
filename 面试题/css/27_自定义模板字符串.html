@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <iframe src="javascript:alert(1)"></iframe> -->
+    <!-- <div onclick="alert(1)"></div> -->
+    <img src="" onerror="alert(1)">
+
+
+    <!-- <template id="template">
+        ${data.map(function (obj, index) {
+        return `<p>文章：${obj.article}</p>
+        <p>作者：${obj.author}</p>
+        `;
+        }).join('')}
+    </template> -->
+    <!-- <script>
+        const template = document.querySelector('#template');
+        String.prototype.interpolate = function (params) {
+            const names = Object.keys(params);
+            const vals = Object.values(params);
+
+            return new Function(...names, `return \`${this}\`;`)(...vals);
+        };
+        const html = template.innerHTML.interpolate({
+            data: [{
+                article: '文章标题1',
+                author: '张鑫旭'
+            }, {
+                article: '文章标题2',
+                author: 'CSS新世界'
+            }]
+        });
+
+        console.log(html);
+    </script> -->
+</body>
+
+</html>

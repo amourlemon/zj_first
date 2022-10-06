@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="input">请输入数字</label>
+    <input type="text" id="input">
+    <button id="btn">计算</button>
+    <h3>结果：<span id="res"></span></h3>
+    <script>
+        const inputEl = document.querySelector('#input');
+        const btn = document.querySelector('#btn');
+        const res = document.querySelector('#res');
+        const worker = new Worker("../js/03_worker的练习.js")
+        btn.addEventListener('click', () => {
+            const value = inputEl.value;
+            worker.postMessage(value);
+        })
+        worker.onmessage = function (event) {
+            res.innerHTML = event.data;
+        }
+    </script>
+</body>
+
+</html>

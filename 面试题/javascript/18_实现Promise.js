@@ -61,7 +61,6 @@ class DIYPromise {
                 }
             }
             if(this.status === this.constructor.PROMISE_STATUS_PENDDING) {
-                debugger
               this.fulfilledFn.push(() => {
                 try {
                   const value = onfulfilled(this.value)

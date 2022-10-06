@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            display: flex;
+            height: 100%;
+            width: 100%;
+        }
+
+        .div {
+            margin: auto;
+            width: 366px;
+            height: 366px;
+            background-image: url(https://assets.codepen.io/2002878/random-dice.png);
+            background-position: 0% 100%;
+            /* steps(5, start) 会漏掉一个 */
+            animation: .4s steps(6, jump-none) random infinite;
+        }
+
+        .pause {
+            animation-play-state: paused;
+        }
+
+        .start {
+            animation-play-state: start;
+        }
+
+        @keyframes random {
+            to {
+                background-position: 100% 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div start"></div>
+    <script>
+        const divEl = document.querySelector('.div');
+        divEl.addEventListener('click', () => {
+            if (divEl.classList.contains('start')) {
+                divEl.classList.remove('start');
+                divEl.classList.add('pause');
+            } else {
+                divEl.classList.remove('pause');
+                divEl.classList.add('start');
+            }
+        })
+    </script>
+</body>
+
+</html>

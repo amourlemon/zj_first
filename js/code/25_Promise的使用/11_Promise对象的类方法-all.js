@@ -1,12 +1,12 @@
 const p1 = new Promise((resolve, reject) => {
     setTimeout(() => {
-        reject(1111111);
+        resolve(1111111);
     }, 1000)
 })
 
 const p2 = new Promise(resolve => {
     setTimeout(() => {
-        resolve(222222);
+        reject(222222);
     }, 2000)
 })
 

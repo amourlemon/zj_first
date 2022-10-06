@@ -1,10 +1,19 @@
-function deeepClone(obj) {
-    if(typeof obj !== 'object') return obj
+// function deeepClone(obj) {
+//     if(typeof obj !== 'object') return obj
+//     const newObj = {};
+//     for(const key in obj) {
+//         newObj[key] = deeepClone(obj[key])
+//     }
+//     return newObj;
+// }
+
+function deepClone(obj) {
+    if(typeof obj !== 'object') return obj;
     const newObj = {};
     for(const key in obj) {
-        newObj[key] = deeepClone(obj[key])
+        newObj[key] = deepClone(obj[key])
     }
-    return newObj;
+    return newObj
 }
 
 const person = {
@@ -16,7 +25,7 @@ const person = {
     }
 }
 
-const clonePerson = deeepClone(person);
+const clonePerson = deepClone(person);
 clonePerson.friend.name = 'ww';
 console.log(clonePerson)
 console.log(person);
