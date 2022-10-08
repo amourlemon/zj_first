@@ -183,25 +183,50 @@
 // const urlObj = new URL(urlS)
 
 // console.log(urlObj);
+
+
 console.time('parse');
 const a = 1;
 const b = 2;
-(function add(a, b) {
-    return a + b
-})(a, b)
+function add(a, b) {
+    return a + b;
+}
+for(let i = 0; i < 1000000; i++) {
+    add(a, b)
+}
+
 
 console.timeEnd('parse');
 
-const makeAPoint = () => {
-    class Point {
-        constructor(x, y) {
-            this.x = x;
-            this.y = y
+
+// 实现快排
+
+const arr = [1,2,4,5,6,7,-1,10,3,77,22,4]
+
+function getpivot(arr, low, high) {
+    const pivot = arr[low];
+    while(low < high) {
+        while(low < high && arr[high] > pivot) {
+            high--;
         }
+        arr[low] = arr[high];
+        while(low < high && arr[low] <= pivot) {
+            low++;
+        }
+        arr[high] = arr[low];
     }
-    return new Point(1, 2)
+    arr[low] = pivot
+    return low
 }
 
-const a1 = makeAPoint()
-const b1 = makeAPoint();
-console.log(%HaveSameMap(a1, b1));
+function quickSort(arr, low, high) {
+    if(low < high) {
+        const pivot = getpivot(arr, low, high);
+        quickSort(arr, low, pivot-1);
+        quickSort(arr, pivot+1, high);
+    }
+}
+
+quickSort(arr, 0, arr.length - 1)
+
+console.log(arr);
