@@ -149,22 +149,37 @@
     }
 
     red.sort((a, b) => a - b)
-    console.log(red);
+
     const redEls = document.querySelector('.red');
     const redBall = redEls.children[1];
     const redBalls = redEls.children[1].children
     const len = redBalls.length - 1
     let low = 0;
+    let count = 0;
+    console.log(red);
     for(let i = len; i >= low; i--) {
         if(red.includes(i)) {
+            const num = red.splice(5-count, 1)
             redBalls[i].classList.add('active')
             redBall.insertBefore(redBalls[i],redBall.firstChild)
+            count++
+            red.forEach((item, index) => {
+                red[index] = item + count
+            })
+            console.log('i:', i, red );
+            i+=count;
         }
     }
+    console.log(red);
     const blueEls = document.querySelector('.blue');
     const blueBalls = blueEls.children[1].children
     blueBalls[blue].classList.add('active')
 
+}
+function swap(arr, i,j) {
+    const temp = arr[i]
+    arr[i] = arr[j]
+    arr[j] = temp
 }
     </script>
 </body>

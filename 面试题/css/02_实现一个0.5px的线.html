@@ -1,28 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- 在 meta 标签中将 initial-scale 设置为 0.5 那么 1px 的高度就变成了0.5px 这个方法只适用于移动端 -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .div1 {
-            height: 40px;
-            width: 40px;
-            border: 1px solid orange;
-        }
-        .div2 {
-            /* 利用 transform scale 进行缩放 */
-            height: 80px;
-            width: 80px;
-            border: 1px solid tomato;
-            transform: scale(0.5, 0.5);
-        }
+      .div1 {
+        height: 40px;
+        width: 40px;
+        border: 1px solid orange;
+      }
+      .div2 {
+        /* 利用 transform scale 进行缩放 */
+        height: 80px;
+        width: 80px;
+        border: 1px solid tomato;
+        transform: scale(0.5, 0.5);
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="div1"></div>
     <div class="div2"></div>
-</body>
+    <script>
+      function game(nameList, number) {
+        while (nameList.length > 1) {
+          for (let i = 0; i < number - 1; i++) {
+            nameList.push(nameList.shift());
+          }
+          nameList.shift();
+        }
+        return nameList;
+      }
+      console.log(game([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3));
+    </script>
+  </body>
 </html>

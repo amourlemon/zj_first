@@ -8,14 +8,14 @@ class Vue {
 
 // 监听事件
 function Observer(data_instance) {
-    if(!data_instance || typeof data_instance !== 'object') return
+    if (!data_instance || typeof data_instance !== 'object') return
     const dependency = new Dependency()
-    for(const key in data_instance) {
+    for (const key in data_instance) {
         defineReactive(data_instance, key, data_instance[key], dependency);
     }
 }
 
-function defineReactive(data_instance, key, value=data_instance[key], dependency) {
+function defineReactive(data_instance, key, value = data_instance[key], dependency) {
     Observer(value)
     Object.defineProperty(data_instance, key, {
         get() {
@@ -28,7 +28,7 @@ function defineReactive(data_instance, key, value=data_instance[key], dependency
             return value
         },
         set(newVal) {
-            if(newVal === value) return 
+            if (newVal === value) return
             value = newVal;
             Observer(value);
             // 通知订阅者进行更新
@@ -42,7 +42,7 @@ function Compile(element, vm) {
     vm.$el = document.querySelector(element);
     const fragment = document.createDocumentFragment();
     let child;
-    while(child = vm.$el.firstChild) {
+    while (child = vm.$el.firstChild) {
         fragment.append(child);
     }
     fragment_compile(fragment)
@@ -50,12 +50,12 @@ function Compile(element, vm) {
     function fragment_compile(node) {
         // 匹配插值表达式 s* 表示有多个空格或者没有空格， \S+ 表示任意字符
         const pattern = /\{\{\s*(\S+)\s*\}\}/;
-        if(node.nodeType === 3) {
+        if (node.nodeType === 3) {
             const xxx = node.nodeValue;
             // exec 返回符合条件的数组
             // console.log(node.nodeValue);
             const result_regex = pattern.exec(node.nodeValue);
-            if(result_regex) {
+            if (result_regex) {
                 //? 获取到插值表达式当中的内容，比方说 more.like
                 const arr = result_regex[1].split('.');
                 // 获取插值表达式中的值
@@ -72,12 +72,12 @@ function Compile(element, vm) {
             return
         }
         // 找到 input 节点
-        if(node.nodeType === 1 && node.nodeName === 'INPUT') {
+        if (node.nodeType === 1 && node.nodeName === 'INPUT') {
             const attr = Array.from(node.attributes);
             attr.forEach(i => {
-                if(i.nodeName === 'v-model') {
+                if (i.nodeName === 'v-model') {
                     const value = i.nodeValue.split('.').reduce((total, current) => {
-                     return total[current]   
+                        return total[current]
                     }, vm.$data)
                     node.value = value;
                     // 创建订阅者，以便更新输入框中的值
@@ -89,7 +89,7 @@ function Compile(element, vm) {
                         // [more, like]
                         const arr1 = i.nodeValue.split('.');
                         // [more]
-                        const arr2 = arr1.slice(0,arr1.length - 1);
+                        const arr2 = arr1.slice(0, arr1.length - 1);
                         // vm.$data.more
                         const final = arr2.reduce((total, current) => total[current], vm.$data);
                         // vm.$data.more['more']

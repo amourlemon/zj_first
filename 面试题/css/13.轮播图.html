@@ -1,150 +1,161 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        .container {
-            height: 500px;
-            width: 300px;
-            overflow: hidden;
-            margin: 60px auto;
-            position: relative;
-        }
+      .container {
+        height: 500px;
+        width: 300px;
+        overflow: hidden;
+        margin: 60px auto;
+        position: relative;
+      }
 
-        .carousel {
-            display: flex;
-            height: 100%;
-            width: 100%;
-            transition: all 0.5s;
-        }
+      .carousel {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        transition: all 0.5s;
+      }
 
-        /* .carousel>.item {} */
+      /* .carousel>.item {} */
 
-        .carousel .item img {
-            height: 500px;
-            width: 300px;
-        }
+      .carousel .item img {
+        height: 500px;
+        width: 300px;
+      }
 
-        .indicator {
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 200px;
-            height: 24px;
-        }
+      .indicator {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        position: absolute;
+        bottom: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 200px;
+        height: 24px;
+      }
 
-        .indicator span {
-            display: inline-block;
-            height: 20px;
-            width: 20px;
-            border-radius: 50%;
-            opacity: 0.6;
-            background-color: white;
-            cursor: pointer;
-        }
+      .indicator span {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        opacity: 0.6;
+        background-color: white;
+        cursor: pointer;
+      }
 
-        .active {
-            background-color: rgb(19, 75, 160) !important;
-        }
+      .active {
+        background-color: rgb(19, 75, 160) !important;
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
-        <div class="carousel">
-            <div class="item"><a href=""><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQHlJW3iX0eSx0YEsPnrToEC7iKW4m3TEgiQ&usqp=CAU"
-                        alt=""></a></div>
-            <div class="item"><a href=""><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcdDjbv_Eu4U4sV8DCzzUlm4aYC8IVQm4tUg&usqp=CAU"
-                        alt=""></a></div>
-            <div class="item"><a href=""><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDCPJP073SXgSqSqyyGQqanok9dC2wl-hlJw&usqp=CAU"
-                        alt=""></a></div>
-            <div class="item"><a href=""><img
-                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanQ3HyEmWS385pbfQqYIfrG4GcFRkf_l9Rg&usqp=CAU"
-                        alt=""></a></div>
+      <div class="carousel">
+        <div class="item">
+          <a href=""
+            ><img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQQHlJW3iX0eSx0YEsPnrToEC7iKW4m3TEgiQ&usqp=CAU"
+              alt=""
+          /></a>
         </div>
-        <div class="indicator">
-            <span class="active"></span>
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="item">
+          <a href=""
+            ><img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcdDjbv_Eu4U4sV8DCzzUlm4aYC8IVQm4tUg&usqp=CAU"
+              alt=""
+          /></a>
         </div>
+        <div class="item">
+          <a href=""
+            ><img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDCPJP073SXgSqSqyyGQqanok9dC2wl-hlJw&usqp=CAU"
+              alt=""
+          /></a>
+        </div>
+        <div class="item">
+          <a href=""
+            ><img
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQanQ3HyEmWS385pbfQqYIfrG4GcFRkf_l9Rg&usqp=CAU"
+              alt=""
+          /></a>
+        </div>
+      </div>
+      <div class="indicator">
+        <span class="active"></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
     <script>
-        var curIndex = 0;
-        var docObj = {
-            carousel: document.querySelector('.carousel'),
-            indicators: document.querySelectorAll('.indicator span')
+      var curIndex = 0;
+      var docObj = {
+        carousel: document.querySelector(".carousel"),
+        indicators: document.querySelectorAll(".indicator span"),
+      };
+      let length = docObj.indicators.length;
+      docObj.indicators.forEach((item, index) => {
+        item.addEventListener("click", () => {
+          moveTo(index);
+          totalIndex = index;
+        });
+      });
+      function moveTo(index) {
+        docObj.carousel.style.transform = `translateX(-${index}00%)`;
+        docObj.carousel.style.transition = "all .5s";
+        document.querySelector(".active").classList.remove("active");
+        docObj.indicators[index].classList.add("active");
+      }
+
+      // function playing(index) {
+      //     let cloIndex = index;
+      //     timer = setInterval(() => {
+      //         if (cloIndex === 3) {
+      //             cloIndex = -1
+      //             docObj.carousel.style.transform = `translateX(-${++cloIndex}00%)`
+      //             docObj.carousel.style.transition = `none`
+      //         } else {
+      //             docObj.carousel.style.transition = `all 1s`
+      //             docObj.carousel.style.transform = `translateX(-${++cloIndex}00%)`
+      //         }
+
+      //     }, 1000)
+      // }
+
+      // playing(0)
+
+      function init() {
+        const first = docObj.carousel.firstElementChild.cloneNode(true);
+        const last = docObj.carousel.lastElementChild.cloneNode(true);
+
+        docObj.carousel.appendChild(first);
+        docObj.carousel.insertBefore(last, docObj.carousel.firstElementChild);
+        last.style.position = "absolute";
+        last.style.transform = "translateX(-100%)";
+      }
+      init();
+
+      // 无缝切换
+      function moveRight() {
+        if (curIndex === length - 1) {
+          docObj.carousel.style.transform = `translateX(100%)`;
+          docObj.carousel.style.transition = "none";
+          //! 获取高度,引起回流，导致重新渲染
+          console.log(docObj.carousel.clientHeight);
+          moveTo(0);
+          curIndex = 0;
+        } else {
+          moveTo(++curIndex);
         }
-        let length = docObj.indicators.length
-        docObj.indicators.forEach((item, index) => {
-            item.addEventListener('click', () => {
-                moveTo(index)
-                totalIndex = index
-            })
-        })
-        function moveTo(index) {
-            docObj.carousel.style.transform = `translateX(-${index}00%)`
-            docObj.carousel.style.transition = 'all .5s';
-            document.querySelector('.active').classList.remove('active')
-            docObj.indicators[index].classList.add('active')
-        }
-
-
-        // function playing(index) {
-        //     let cloIndex = index;
-        //     timer = setInterval(() => {
-        //         if (cloIndex === 3) {
-        //             cloIndex = -1
-        //             docObj.carousel.style.transform = `translateX(-${++cloIndex}00%)`
-        //             docObj.carousel.style.transition = `none`
-        //         } else {
-        //             docObj.carousel.style.transition = `all 1s`
-        //             docObj.carousel.style.transform = `translateX(-${++cloIndex}00%)`
-        //         }
-
-        //     }, 1000)
-        // }
-
-        // playing(0)
-
-        function init() {
-            const first = docObj.carousel.firstElementChild.cloneNode(true);
-            const last = docObj.carousel.lastElementChild.cloneNode(true);
-
-            docObj.carousel.appendChild(first);
-            docObj.carousel.insertBefore(last, docObj.carousel.firstElementChild);
-            last.style.position = 'absolute';
-            last.style.transform = 'translateX(-100%)'
-        }
-        init()
-
-        // 无缝切换
-        function moveRight() {
-            if (curIndex === length - 1) {
-                docObj.carousel.style.transform = `translateX(100%)`;
-                docObj.carousel.style.transition = 'none';
-                //! 获取高度,引起回流，导致重新渲染
-                console.log(docObj.carousel.clientHeight)
-                moveTo(0)
-                curIndex = 0
-            } else {
-                moveTo(++curIndex)
-            }
-
-        }
-
+      }
     </script>
-</body>
-
+  </body>
 </html>

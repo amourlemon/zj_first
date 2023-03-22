@@ -103,7 +103,7 @@
 // const numArr = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 // const newArr = numArr.map(item => {
-     
+
 //      return item = + item
 // })
 
@@ -151,7 +151,7 @@
 // }
 
 // function Student() {
-    
+
 // }
 // // Student.prototype= new Person();
 
@@ -183,20 +183,20 @@
 //   Promise.resolve('aaa').then(res => {
 //     console.log(res)
 //   })
-  
+
 //   setTimeout(function timeout() {
 //     console.log('TIMEOUT FIRED');
 //   }, 0)
-  // 1
-  // 2
-  // TIMEOUT FIRED
+// 1
+// 2
+// TIMEOUT FIRED
 
-  
+
 // setImmediate(function A() {
 //     console.log(1);
 //     setImmediate(function B(){console.log(2);});
 //   });
-  
+
 //   setTimeout(function timeout() {
 //     console.log('TIMEOUT FIRED');
 //   }, 0);
@@ -361,7 +361,7 @@
 //       res++
 //     }
 //   }
-  
+
 // }
 // foo()
 
@@ -587,31 +587,131 @@
 // console.log(B);
 // console.log(bar);
 
-class Foo {
-  #count = 0;
-  #index = 0;
-  increasement() {
-    this.#count++;
-  }
-  logCount() {
-    if((this.#index++) % 2  === 0) {
-      console.log(1);
+// class Foo {
+//   #count = 0;
+//   #index = 0;
+//   increasement() {
+//     this.#count++;
+//   }
+//   logCount() {
+//     if((this.#index++) % 2  === 0) {
+//       console.log(1);
+//     } else {
+//       console.log(2);
+//     }
+//   }
+// }
+
+// const foo = new Foo();
+// // foo.increasement()
+// foo.logCount()  
+// foo.logCount()  
+// foo.logCount()  
+// foo.logCount()  
+// foo.logCount()  
+// foo.logCount()  
+// foo.logCount()  
+// const foo2 = new Foo();
+// foo2.logCount()  
+// 在 constructor 中也访问不到 定义的私有变量
+// console.log(foo.constructor)
+
+
+function debounce(fn, delay, immediate = false) {
+  let timer = null;
+  let isInvoke = false;
+  return function (...args) {
+    if (timer) clearTimeout(timer);
+    if (immediate && !isInvoke) {
+      fn.apply(this, args);
+      isInvoke = true;
     } else {
-      console.log(2);
+      timer = setTimeout(() => {
+        fn.apply(this, args);
+        isInvoke = false;
+      }, delay)
     }
   }
 }
 
-const foo = new Foo();
-// foo.increasement()
-foo.logCount()  
-foo.logCount()  
-foo.logCount()  
-foo.logCount()  
-foo.logCount()  
-foo.logCount()  
-foo.logCount()  
-const foo2 = new Foo();
-foo2.logCount()  
-// 在 constructor 中也访问不到 定义的私有变量
-// console.log(foo.constructor)
+
+function deepClone(targetSource) {
+  if (typeof targetSource !== 'object' || typeof targetSource !== 'function') return targetSource;
+  const map = new Map();
+  function clone(target) {
+    const cloneTarget = typeof target === 'object' ? {} : [];
+    if (map.has(target)) {
+      return target;
+    }
+    map.set(target, cloneTarget);
+    for (const key in target) {
+      cloneTarget[key] = clone(target[key]);
+    }
+    return cloneTarget;
+  }
+  return clone(targetSource);
+}
+
+function throttle(fn, interval) {
+  let startTime = 0;
+  return function (...args) {
+    let nowTime = Date.now();
+    if (nowTime - startTime > interval) {
+      fn.apply(this, args);
+      startTime = Date.now();
+    }
+  }
+}
+
+Array.prototype._flat = function (deep = 1) {
+  let res = this;
+  for (let i = deep; i > 0; i--) {
+    res = [].concat(...res);
+  }
+  return res;
+}
+
+
+function getPivot(arr, high, low) {
+  const pivot = arr[low];
+  while (low < high) {
+    while (low < high && arr[high] > pivot) {
+      --high;
+    }
+    arr[low] = arr[high];
+    while (low < high && arr[low] <= pivot) {
+      ++low;
+    }
+    arr[high] = arr[low];
+  }
+  arr[low] = pivot;
+  return low;
+}
+
+
+function quickSort(arr, high, low) {
+  if (low < high) {
+    const pivot = getPivot(arr, high, low)
+    quickSort(arr, pivot - 1, low);
+    quickSort(arr, high, pivot + 1)
+  }
+}
+
+
+function list2tree(targetArr = []) {
+  cosnt[map, list] = [{}, []];
+
+  for (let i = 0; i < targetArr.length; i++) {
+    map[targetArr[i].id] = i;
+    targetArr[i].children = [];
+  }
+
+  for (const node of targetArr) {
+    if (map[node.pid] || map[node.pid] === 0) {
+      targetArr[map[node.pid]].children.push(node);
+    } else {
+      list.push(node)
+    }
+  }
+  return node;
+}

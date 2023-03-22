@@ -3,7 +3,9 @@ let obj = {
     2: 'sd',
     1: 'dsf',
     p1: 'dfdf',
-    a: '222'
+    '': 'sdsd',
+    a: '222',
+    '0': 'sdfd'
 }
 
 for (const key in obj) {

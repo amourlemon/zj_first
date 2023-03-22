@@ -1,17 +1,17 @@
 
 var a;
- if(true){
+if (true) {
     console.log(a);
     a = 5;
-    function a() {}
+    function a() { }
     a = 6
-    function a() {}
-    function b() {}
+    function a() { }
+    function b() { }
     a = 0;
     console.log(a);
 }
 
-foo()
+// foo()
 
 console.log(a);
 console.log(b);

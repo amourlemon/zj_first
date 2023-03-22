@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .parent2 {
+        background-color: rgb(27, 67, 122);
+        width: 400px;
+        height: 400px;
+      }
+      .parent {
+        position: relative;
+        background-color: antiquewhite;
+        width: 400px;
+        height: 400px;
+        /* z-index: -100; */
+        top: 0;
+        left: 0;
+      }
+      .child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        background-color: aqua;
+        width: 200px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="parent2"></div>
+    <div class="parent">
+      <div class="child"></div>
+    </div>
+
+    <script>
+      const child = document.querySelector(".child");
+      child.addEventListener("click", () => {
+        console.log(333);
+      });
+      console.log(child);
+    </script>
+  </body>
+</html>

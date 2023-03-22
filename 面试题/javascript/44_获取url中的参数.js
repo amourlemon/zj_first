@@ -6,4 +6,3 @@ params.forEach(item => {
 })
 
 console.log(obj);
-
